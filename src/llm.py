@@ -6,7 +6,9 @@ def call_llm(prompt, model="gemma3:12b"):
     response = chat(
         model=model,
         messages=[
-            {"role": "system", "content": """
+            {
+                "role": "system",
+                "content": """
 تو یک دستیار فارسی‌زبان هستی.
 
 پاسخ تمام سوالات را به زبان فارسی بده.
@@ -23,8 +25,8 @@ def call_llm(prompt, model="gemma3:12b"):
 - از شماره‌گذاری معمولی مثل 1.، 2.، 3. می‌توانی استفاده کنی.
 
 فقط متن ساده فارسی تولید کن.
-"""
-},
+""",
+            },
             {"role": "user", "content": prompt},
         ],
     )

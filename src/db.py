@@ -1,7 +1,6 @@
-
-
 from tinydb import TinyDB
 from tinydb.table import Document
+
 
 class DBHandler:
     def __init__(self, db_path="message_db.json"):
@@ -12,9 +11,7 @@ class DBHandler:
         message_id = json_data.get("message_id")
 
         if message_id:
-            self.messages.upsert(
-                Document(json_data, doc_id=message_id)
-            )
+            self.messages.upsert(Document(json_data, doc_id=message_id))
         else:
             self.messages.insert(json_data)
 
