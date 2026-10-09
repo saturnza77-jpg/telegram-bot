@@ -107,7 +107,7 @@ Bot sends the response back to Telegram
 لطفا کمی صبر کنید...
 
 6. After the LLM finishes processing, message changed to:
-جواب حاظر است   
+جواب حاضر است   
 
 7. The genetated AI response is then sent as a new Telegram message.
 
