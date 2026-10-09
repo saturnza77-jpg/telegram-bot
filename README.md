@@ -289,11 +289,13 @@ These packages provide Telegram integration, communication with Ollama, local da
 
 ### 3. Install Ollama
 
-Download and install Ollama for your operating system:
+### Install Ollama Using the Terminal (Windows)
 
-https://ollama.com/download
+Open PowerShell and run the following command to download and install Ollama:
 
-Check the installation:
+```powershell
+irm https://ollama.com/install.ps1 | iex
+```
 
 ```bash
 ollama --version
