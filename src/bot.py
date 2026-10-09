@@ -30,20 +30,29 @@ def is_valid_admin_reply(message):
 def store_message(message):
     json_data = message.json
     db_handler.store_message(json_data)
+    print("CHAT ID:", message.chat.id)
     print(f"Stored message with ID: {json_data.get('message_id')}")
 
 
 @bot.message_reaction_handler()
 def handle_reaction(message: telebot.types.MessageReactionUpdated):
+    if not message.new_reaction:
+        return
+
     reaction = message.new_reaction[-1].emoji
     if reaction not in ["👍"]:
         return
-#!
-    message_text = db_handler.get_message(message.message_id).get("text")
-    loading = bot.send_message(message.chat.id, "Preparing your answer...")
+
+    message_data = db_handler.get_message(message.message_id)
+
+    if message_data is None:
+        return
+
+    message_text = message_data.get("text")
+    loading = bot.send_message(message.chat.id, "لطفا کمی صبر کنید...")
     # bot.reply_to(message, f"Preparing your answer...")
     response = call_llm(message_text)
-    bot.edit_message_text("Answer ready!", message.chat.id, loading.message_id)
+    bot.edit_message_text("جواب حاضر است!", message.chat.id, loading.message_id)
     bot.send_message(message.chat.id, response)
 
 
