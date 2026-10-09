@@ -255,16 +255,6 @@ Keeping these messages in a separate file makes them easier to update.
 
 Before running the project, make sure the following are installed:
 
-1. Python
-2. Telegram Bot Token
-3. Ollama
-4. Gemma 3:12b
-
---------------------------------------------------------------
-# Requirements
-
-Before running the project, make sure the following are installed:
-
 - Python 3.10 or newer
 - PyTelegramBotAPI for Telegram Bot integration
 - Ollama for running the local language model
